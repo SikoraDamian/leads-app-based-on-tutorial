@@ -24,7 +24,7 @@
     <p>This persons age: {{ lead.age }}</p>
     <p>The agent for lead is: {{ lead.agent }}</p>
     <hr/>
-    <a href="/{{ lead.pk}}/update">update</a>
-    <a href="/{{ lead.pk}}/delete">delete</a>
+    <a href="{% url 'leads:lead-update' lead.pk %}">update</a>
+    <a href="{% url 'leads:lead-delete' lead.pk %}">delete</a>
 </body>
 </html>
