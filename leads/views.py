@@ -28,6 +28,13 @@ class LeadCreateView(CreateView):
     
     def form_valid(self, form):
         return super(LeadCreateView, self).form_valid(form)
+        send_mail(
+            subject = "A leas has been created",
+            message = "Go to the site",
+            from_email = "test@test.com",
+            recepians_email = ["test2@test.com",]
+
+        )
 
 
 class LeadUpdateView(UpdateView):
