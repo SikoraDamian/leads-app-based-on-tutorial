@@ -27,14 +27,13 @@ class LeadCreateView(CreateView):
         return reverse('leads:leads-list')
     
     def form_valid(self, form):
-        return super(LeadCreateView, self).form_valid(form)
         send_mail(
-            subject = "A leas has been created",
-            message = "Go to the site",
-            from_email = "test@test.com",
-            recepians_email = ["test2@test.com",]
-
+            subject="A lead has been created",
+            message="Go to the site to see the new lead",
+            from_email="test@test.com",
+            recipient_list=["test2@test.com"]
         )
+        return super(LeadCreateView, self).form_valid(form)
 
 
 class LeadUpdateView(UpdateView):
