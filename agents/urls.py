@@ -1,8 +1,10 @@
 from django.urls import path
-from .views import AgentListView
+from .views import AgentListView, AgentCreateView
 
-app_name = 'agenta'
+app_name = 'agent'
 
 urlpatterns = [
-    path('', AgentListView.as_view(), name='agents'),
+    path('', AgentListView.as_view(), name='agent-list'),
+    path('create/', AgentCreateView.as_view(), name='agent-create'),
+
 ]
