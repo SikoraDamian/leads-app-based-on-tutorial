@@ -23,14 +23,14 @@ class SignupView(CreateView):
     form_class = CustomUserCreationForm
     
     def get_success_url(self):
-        return reverse('leads:leads-list')
+        return reverse('leads:lead-list')
 
 class LeadCreateView(LoginRequiredMixin, CreateView):
     template_name = "leads/lead_create.html"
     form_class = LeadModelForm
     
     def get_success_url(self):
-        return reverse('leads:leads-list')
+        return reverse('leads:lead-list')
     
     def form_valid(self, form):
         send_mail(
@@ -47,12 +47,12 @@ class LeadUpdateView(LoginRequiredMixin, UpdateView):
     queryset = Lead.objects.all()
     
     def get_success_url(self):
-        return reverse('leads:leads-list')
+        return reverse('leads:lead-list')
 
 class LeadDeleteView(LoginRequiredMixin, DeleteView):
     template_name = "leads/lead_delete.html"
     queryset = Lead.objects.all()
     
     def get_success_url(self):
-        return reverse('leads:leads-list')
+        return reverse('leads:lead-list')
 
