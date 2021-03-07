@@ -6,6 +6,7 @@ from .models import Lead, Agent
 from .forms import LeadForm, LeadModelForm, CustomUserCreationForm
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
 
+
 class LandingPagesView(TemplateView):
     template_name = "landing.html"
 
