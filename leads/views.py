@@ -19,12 +19,9 @@ class LeadListView(LoginRequiredMixin, ListView):
     def get_queryset(self):
         user = self.request.user
         if user.is_organisor:
-            queryset = Lead.objects.filter(
-                organisation=user.userprofile,
-                agent__isnull=False
-                )
+            queryset = Lead.objects.filter(organisation=user.userprofile, agent__isnull=False)
         else:
-            queryset = Lead.objects.filter(organisation=user.agent.organisation)
+            queryset = Lead.objects.filter(organisation=user.agent.organisation, agent__isnull=False)
             queryset = queryset.filter(agent__user=user)
         return queryset
     
@@ -35,9 +32,9 @@ class LeadListView(LoginRequiredMixin, ListView):
             queryset = Lead.objects.filter(
                 organisation=user.userprofile,
                 agent__isnull=True
-                )
+            )
             context.update({
-                "unassign_leads": queryset
+                "unassigned_leads": queryset
         })
         return context
 
