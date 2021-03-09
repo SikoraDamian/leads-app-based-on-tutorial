@@ -26,4 +26,8 @@ class CustomUserCreationForm(UserCreationForm):
         fields = ('username',)
         field_classes = {'uername': UsernameField}
 
-
+class AssignAgentForm(forms.Form):
+    agent = forms.ChoiceField(choices=(
+        ('agent1', 'gent1 full name'),
+        ('agent2', 'agent2 full name')
+        ))
