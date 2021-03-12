@@ -40,7 +40,7 @@ class LeadListView(LoginRequiredMixin, generic.ListView):
 
 class LeadDetailView(LoginRequiredMixin, generic.DetailView):
     template_name = "leads/lead_detail.html"
-    context_object_name = "leads"
+    context_object_name = "lead"
 
     def get_queryset(self):
         user = self.request.user
