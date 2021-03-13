@@ -10,7 +10,7 @@ from django.contrib.auth.views import (
 )
 from django.urls import path, include
 from django.conf.urls.static import static
-from leads.views import LandingPagesView, SignupView
+from leads.views import LandingPageView, SignupView
 
 
 urlpatterns = [
@@ -24,7 +24,7 @@ urlpatterns = [
     path('password_reset_complete/', PasswordResetCompleteView.as_view(), name='password_reset_complete'),
     path('password_reset_confirm/<uidb64>/<token>/', PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
     path('logout/', LogoutView.as_view(), name='logout'),
-    path('', LandingPagesView.as_view(), name='landing-page'),
+    path('', LandingPageView.as_view(), name='landing-page'),
 ]
 
 if settings.DEBUG:
